@@ -1,34 +1,88 @@
 ---
-import NextJS from "./icons/NextJS.astro"
-import Tailwind from "./icons/Tailwind.astro"
+import Angular from './icons/Angular.astro'
+import React from './icons/react.astro'
+import MaterialUI from './icons/materialui.astro'
+import Bootstrap from './icons/bootstrap.astro'
+import JWT from './icons/jwt.astro'
+import Redux from './icons/redux.astro'
+import Node from './icons/nodejs.astro'
+import TS from './icons/typescript.astro'
 
 const TAGS = {
-  NEXT: {
-    name: "Next.js",
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-white text-white",
+    icon: Angular,
+  },
+  React: {
+    name: "React",
+    class: "bg-[#d0f2f0] text-black",
+    icon: React,
+  },
+  Material: {
+    name: "MaterialUI",
+    class: "bg-[#001f59] text-white",
+    icon: MaterialUI
+  },
+  Bootstrap: {
+    name: "Bootstrap",
+    class: "bg-[#debef7] text-black",
+    icon: Bootstrap
+  },
+  JWT: {
+    name: "JWT",
+    class: "bg-[#c2e3b3] text-black",
+    icon: JWT
+  },
+  Redux: {
+    name: "Redux",
+    class: "bg-[#e6aa8a] text-black",
+    icon: Redux
+  },
+  Node: {
+    name: "Node",
     class: "bg-black text-white",
-    icon: NextJS,
+    icon: Node
   },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
-  },
+  TS: {
+    name: "Typescript",
+    class: "bg-white text-black",
+    icon: TS
+  }
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "PokeCollect - Juego de colección (En construcción)",
     description:
-      "Created from scratch with Next.js and Tailwind CSS. It's a library with SVG logos from the most popular brands. Optimized for SEO and performance.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Aplicación basada en React de colección de pokémons y búsqueda de datos e información de los mismos. Manejo de estados con Redux Toolkit. Estilos y diseño con CSS plano y Bootstrap. Validación de formulario con Formik y Yup.",
+    link: "https://poke-collect-back.vercel.app/",
+    github: "https://github.com/Bsshark/PokeCollect",
+    image: "/projects/pokeproject.webp",
+    tags: [TAGS.React, TAGS.Bootstrap, TAGS.JWT, TAGS.Redux],
   },
+  {
+    title: "PokeBack - API (En construcción)",
+    description:
+      "Aplicación desarrollada con Node y Express para la creación de una API y manejo de solicitudes y rutas a una base de datos no relacional (MongoDB)",
+    link: "https://pokecollectback-production.up.railway.app/api/pokemon/name/",
+    github: "https://github.com/Bsshark/PokeCollectback",
+    image: "/projects/node.webp",
+    tags: [TAGS.Node, TAGS.JWT]
+  },
+  {
+    title: "Maps - React",
+    description:
+      "Aplicación de mapas desarollada en React con empleo de Context y herramientas externas (MapLibreGL y Nominatim)",
+      link: "https://react-maps-adlg.netlify.app/",
+      github: "https://github.com/Bsshark/react-maps",
+      image: "/projects/maps.webp",
+      tags: [TAGS.React, TAGS.TS]
+  }
 ]
 ---
 
 {
-  PROJECTS.map(({ image, title, description, tags }) => (
+  PROJECTS.map(({ image, title, description, tags, link }) => (
     <article>
       <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
         {title}
@@ -51,6 +105,7 @@ const PROJECTS = [
         class="rounded shadow-2xl shadow-white/10 aspect-video"
         src={image}
         alt={`Captura de pantalla del proyecto ${image}`}
+        onclick={link}
       />
     </article>
   ))
